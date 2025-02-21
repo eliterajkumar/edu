@@ -5,7 +5,11 @@ export default function Header() {
   return (
     <nav className="bg-gray-900 text-white px-8 py-4 flex justify-between items-center shadow-lg">
       {/* Logo */}
-      <h1 className="text-2xl font-bold text-white">AI Platform</h1>
+      
+
+<h1 className="text-2xl font-bold text-white cursor-pointer">
+  <Link href="/">AI Platform</Link>
+</h1>
 
       {/* Navigation Links */}
       <div className="hidden md:flex space-x-6">

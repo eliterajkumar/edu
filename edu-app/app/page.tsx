@@ -13,7 +13,13 @@ export default function Home() {
         <h1 className="text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
           Welcome to AI Platform
         </h1>
-        <p className="text-lg text-gray-400">Learn, Innovate, and Grow with AI</p>
+        <p className="text-center text-gray-400 max-w-2xl mx-auto leading-relaxed">
+  Confused about which course to take? Don't worry, I've got you covered!  
+  Browse through the courses and find the best one for you—it's completely free!  
+  <span className="font-semibold">EP</span> is my attempt to teach the basics and essential coding techniques  
+  in a short time—techniques that took me ages to master.
+</p>
+
         <Button className="mt-6 px-6 py-3 text-lg font-semibold bg-pink-600 hover:bg-pink-700 transition duration-300">
           Get Started
         </Button>
