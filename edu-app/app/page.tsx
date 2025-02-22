@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import Link from "next/link";
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
@@ -24,27 +25,41 @@ export default function Home() {
         </h1>
         {isClient ? (
           <p className="text-center text-gray-400 max-w-2xl mx-auto leading-relaxed px-4">
-            Confused about which course to take? Don't worry, I've got you covered!  
+            Confused about which course to take? Don't worry, we've got you covered!  
             Browse through the courses and find the best one for you—it's completely free!  
-            <span className="font-semibold">EP</span> is my attempt to teach the basics and essential coding techniques  
-            in a short time—techniques that took me ages to master.
+            <span className="font-semibold">EP</span> is our attempt to teach the basics and essential coding techniques  
+            in a short time—techniques that took years to master.
           </p>
         ) : (
           <p className="text-gray-400">Loading...</p>
         )}
-        
-        <Button className="mt-6 px-6 py-3 text-lg font-semibold bg-pink-600 hover:bg-pink-700 transition duration-300 w-full sm:w-auto">
-          Get Started
-        </Button>
+
+        <Link href="/courses">
+          <Button className="mt-6 px-6 py-3 text-lg font-semibold bg-pink-600 hover:bg-pink-700 transition duration-300 w-full sm:w-auto">
+            Get Started
+          </Button>
+        </Link>
       </section>
 
       {/* Recommended Courses Section */}
       <section className="p-6 sm:p-10">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Recommended Courses</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {["🤖 AI Fundamentals", "📊 Machine Learning", "⚡ Deep Learning"].map((course) => (
-            <Card key={course} className="p-6 border border-gray-700 rounded-lg text-center shadow-lg hover:shadow-xl transition">
-              {course}
+          {[
+            { title: "🤖 AI Fundamentals", id: "ai-fundamental" },
+            { title: "📊 Machine Learning", id: "machine-learning" },
+            { title: "⚡ Deep Learning", id: "deep-learning" }
+          ].map((course) => (
+            <Card
+              key={course.id}
+              className="p-6 border border-gray-700 rounded-lg text-center shadow-lg hover:shadow-xl transition"
+            >
+              <h3 className="text-xl font-semibold mb-2">{course.title}</h3>
+              <Link href={`/course/${course.id}`}>
+                <Button className="mt-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">
+                  Start Watching
+                </Button>
+              </Link>
             </Card>
           ))}
         </div>
